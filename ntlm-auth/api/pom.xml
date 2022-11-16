@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.2.5.RELEASE</version>
+		<relativePath /> <!-- lookup parent from repository -->
+	</parent>
+	<groupId>com.example</groupId>
+	<artifactId>dfxsuite</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>DFXSuite</name>
+	<packaging>war</packaging>
+
+	<description>DFX project for Spring Boot</description>
+
+	<properties>
+		<java.version>1.8</java.version>
+		<spring-cloud.version>Hoxton.SR3</spring-cloud.version>
+		<start-class>com.dfx.reverseproxy.ODFGatewayApplication</start-class>
+	</properties>
+
+	<repositories>
+		<repository>
+			<id>com.e-iceblue</id>
+			<name>e-iceblue</name>
+			<url>http://repo.e-iceblue.com/nexus/content/groups/public/</url>
+		</repository>
+
+	</repositories>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>fr.opensagres.xdocreport</groupId>
+			<artifactId>fr.opensagres.poi.xwpf.converter.pdf</artifactId>
+			<version>2.0.2</version>
+		</dependency>
+		<dependency>
+			<groupId>e-iceblue</groupId>
+			<artifactId>spire.xls.free</artifactId>
+			<version>2.2.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-all</artifactId>
+			<version>1.10.19</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-zuul</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger-ui</artifactId>
+			<version>2.6.1</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger2</artifactId>
+			<version>2.6.1</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.json</groupId>
+			<artifactId>json</artifactId>
+			<version>20200518</version>
+		</dependency>
+
+		<!-- Logging -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>org.junit.vintage</groupId>
+					<artifactId>junit-vintage-engine</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>com.github.waffle</groupId>
+			<artifactId>waffle-spring-boot-starter</artifactId>
+			<version>2.2.1</version>
+			<exclusions>
+				<exclusion>
+					<groupId>net.java.dev.jna</groupId>
+					<artifactId>jna</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>net.java.dev.jna</groupId>
+					<artifactId>jna-platform</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>net.java.dev.jna</groupId>
+			<artifactId>jna</artifactId>
+			<version>5.5.0</version>
+		</dependency>
+		<dependency>
+			<groupId>net.java.dev.jna</groupId>
+			<artifactId>jna-platform</artifactId>
+			<version>5.5.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.6</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.microsoft.sqlserver</groupId>
+			<artifactId>mssql-jdbc</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt</artifactId>
+			<version>0.9.1</version>
+		</dependency>
+		<dependency>
+			<groupId>joda-time</groupId>
+			<artifactId>joda-time</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.glassfish.jaxb</groupId>
+			<artifactId>jaxb-runtime</artifactId>
+		</dependency>
+	</dependencies>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>${spring-cloud.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<build>
+		<finalName>dfx</finalName>
+		<plugins>
+			<plugin>
+				<artifactId>maven-resources-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>copy-app-resources</id>
+						<phase>validate</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${project.build.directory}/dfx/app</outputDirectory>
+							<resources>
+								<resource>
+									<directory>../ui/target/app</directory>
+								</resource>
+							</resources>
+						</configuration>
+					</execution>
+				</executions>
+
+			</plugin>
+
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+
+		</plugins>
+
+	</build>
+
+</project>
+

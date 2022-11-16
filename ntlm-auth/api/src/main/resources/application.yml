@@ -1,0 +1,13 @@
+zuul:
+  add-host-header: true
+  host:
+    connect-timeout-millis: 60000 
+    socket-timeout-millis: 60000
+  routes:
+    es-analytics:
+      path: /es/analytics/**
+      url: http://localhost:8085
+      stripPrefix: false
+    superset:
+      path: /analytics/**
+      url: http://localhost:8088/login

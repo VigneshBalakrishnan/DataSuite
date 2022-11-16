@@ -1,0 +1,179 @@
+{
+  "job": {
+    "_children_": [
+      {
+        "_type_": "id",
+        "_value_": "1583774137280"
+      },
+      {
+        "_type_": "description",
+        "_value_": "fs2es"
+      },
+      {
+        "_type_": "repository_connection",
+        "_value_": "fs"
+      },
+      {
+        "_type_": "document_specification",
+        "startpoint": {
+          "include": [
+            {
+              "_attribute_match": "*",
+              "_value_": "",
+              "_attribute_type": "file"
+            },
+            {
+              "_attribute_match": "*",
+              "_value_": "",
+              "_attribute_type": "directory"
+            }
+          ],
+          "_attribute_path": "/Users/plrkannan/Documents/tmp/input",
+          "_attribute_converttouri": "false",
+          "_value_": ""
+        }
+      },
+      {
+        "_type_": "pipelinestage",
+        "_children_": [
+          {
+            "_type_": "stage_id",
+            "_value_": "0"
+          },
+          {
+            "_type_": "stage_isoutput",
+            "_value_": "false"
+          },
+          {
+            "_type_": "stage_connectionname",
+            "_value_": "tika"
+          },
+          {
+            "_type_": "stage_specification",
+            "_children_": [
+              {
+                "_type_": "keepAllMetadata",
+                "_value_": "",
+                "_attribute_value": "true"
+              },
+              {
+                "_type_": "lowerNames",
+                "_value_": "",
+                "_attribute_value": "false"
+              },
+              {
+                "_type_": "writeLimit",
+                "_value_": "",
+                "_attribute_value": ""
+              },
+              {
+                "_type_": "ignoreException",
+                "_value_": "",
+                "_attribute_value": "true"
+              },
+              {
+                "_type_": "boilerplateprocessor",
+                "_value_": "",
+                "_attribute_value": "de.l3s.boilerpipe.extractors.KeepEverythingExtractor"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "_type_": "pipelinestage",
+        "_children_": [
+          {
+            "_type_": "stage_id",
+            "_value_": "1"
+          },
+          {
+            "_type_": "stage_prerequisite",
+            "_value_": "0"
+          },
+          {
+            "_type_": "stage_isoutput",
+            "_value_": "false"
+          },
+          {
+            "_type_": "stage_connectionname",
+            "_value_": "staticdata"
+          },
+          {
+            "_type_": "stage_specification",
+            "_children_": [
+              {
+                "_type_": "job_category",
+                "_value_": "USER_JOB_CATEGORY"
+              },
+              {
+                "_type_": "job_subcategory",
+                "_value_": "USER_JOB_SUBCATEGORY"
+              },
+              {
+                "_type_": "job_partitioncode",
+                "_value_": "USER_JOB_PARTITION_CODE"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "_type_": "pipelinestage",
+        "_children_": [
+          {
+            "_type_": "stage_id",
+            "_value_": "2"
+          },
+          {
+            "_type_": "stage_prerequisite",
+            "_value_": "1"
+          },
+          {
+            "_type_": "stage_isoutput",
+            "_value_": "true"
+          },
+          {
+            "_type_": "stage_connectionname",
+            "_value_": "ES"
+          },
+          {
+            "_type_": "stage_specification"
+          }
+        ]
+      },
+      {
+        "_type_": "start_mode",
+        "_value_": "manual"
+      },
+      {
+        "_type_": "run_mode",
+        "_value_": "scan once"
+      },
+      {
+        "_type_": "hopcount_mode",
+        "_value_": "accurate"
+      },
+      {
+        "_type_": "priority",
+        "_value_": "5"
+      },
+      {
+        "_type_": "recrawl_interval",
+        "_value_": "86400000"
+      },
+      {
+        "_type_": "max_recrawl_interval",
+        "_value_": "infinite"
+      },
+      {
+        "_type_": "expiration_interval",
+        "_value_": "infinite"
+      },
+      {
+        "_type_": "reseed_interval",
+        "_value_": "3600000"
+      }
+    ]
+  }
+}
